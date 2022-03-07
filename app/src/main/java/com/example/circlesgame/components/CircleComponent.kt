@@ -27,6 +27,8 @@ class CircleComponent @JvmOverloads constructor(
         ContextCompat.getColor(context, DEFAULT_COLOR)
     )
     var startCountCircle = 20
+    var standardAlpha = 1f
+    var changeAlpha = 0.9f
 
     init {
         start()
@@ -37,13 +39,21 @@ class CircleComponent @JvmOverloads constructor(
         var i = 0
         val randomCircle = (0..startCountCircle).random()
         while (i < startCountCircle) {
-            if (i == randomCircle) _binding.parentLiner.addView(createStandardButton(startColor,0.9f))
+            if (i == randomCircle) _binding.parentLiner.addView(
+                createStandardButton(
+                    startColor,
+                    changeAlpha
+                )
+            )
             _binding.parentLiner.addView(createStandardButton())
             i++
         }
     }
 
-    private fun createStandardButton(color: Int = startColor, newAlpha: Float = 1f): MaterialButton {
+    private fun createStandardButton(
+        color: Int = startColor,
+        newAlpha: Float = standardAlpha
+    ): MaterialButton {
         return MaterialButton(context).apply {
             layoutParams = LayoutParams(100, 100)
             insetTop = 0
