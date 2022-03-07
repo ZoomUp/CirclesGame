@@ -29,14 +29,10 @@ class CircleComponent @JvmOverloads constructor(
     var startCountCircle = 20
     var standardAlpha = 1f
     var changeAlpha = 0.9f
-    var callbackByStandard: () -> Unit = {}
-    var callbackByChangeStandard: () -> Unit = {}
+    var callbackByStandard: (()->Unit)? = null
+    var callbackByChangeStandard: (()->Unit)? = null
 
-    init {
-        start()
-    }
-
-    private fun start() {
+    fun start() {
         var i = 0
         val randomCircle = (0..startCountCircle).random()
         while (i < startCountCircle) {
@@ -55,7 +51,7 @@ class CircleComponent @JvmOverloads constructor(
     private fun createStandardButton(
         color: Int = startColor,
         newAlpha: Float = standardAlpha,
-        callback: () -> Unit = callbackByStandard
+        callback: (()->Unit)? = callbackByStandard
     ): MaterialButton {
         return MaterialButton(context).apply {
             layoutParams = LayoutParams(100, 100)
@@ -64,7 +60,7 @@ class CircleComponent @JvmOverloads constructor(
             alpha = newAlpha
             cornerRadius = 90
             setBackgroundColor(color)
-            setOnClickListener { callback }
+            setOnClickListener { callback?.invoke() }
         }
     }
 

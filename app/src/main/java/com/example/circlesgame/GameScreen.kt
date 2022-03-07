@@ -19,14 +19,7 @@ class GameScreen : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentGameScreenBinding.inflate(inflater, container, false)
-
-        /*_binding?.gameCircles?.apply {
-            callbackByChangeStandard = { correctAnswer() }
-            startColor = R.color.purple_200
-            changeAlpha = 0.5f
-        }*/ // не работает
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -36,6 +29,16 @@ class GameScreen : Fragment() {
             btnMenu.setOnClickListener {
                 findNavController().navigate(R.id.action_GameScreen_to_MainScreen)
             }
+        }
+        initGameCircle()
+    }
+
+    private fun initGameCircle(){
+        _binding?.gameCircles?.apply {
+            callbackByChangeStandard = { correctAnswer() }
+            startColor = R.color.purple_200
+            changeAlpha = 0.5f
+            start()
         }
     }
 
