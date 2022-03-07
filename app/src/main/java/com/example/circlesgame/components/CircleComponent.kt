@@ -9,7 +9,7 @@ import com.example.circlesgame.R
 import com.example.circlesgame.databinding.ComponentCirclesBinding
 import com.google.android.material.button.MaterialButton
 
-private const val DEFAULT_COLOR = R.color.black
+private const val DEFAULT_COLOR = R.color.Black
 
 class CircleComponent @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -48,6 +48,10 @@ class CircleComponent @JvmOverloads constructor(
         }
     }
 
+    fun deleteAllCircle(){
+        _binding.parentLiner.removeAllViews()
+    }
+
     private fun createStandardButton(
         color: Int = startColor,
         newAlpha: Float = standardAlpha,
@@ -59,7 +63,7 @@ class CircleComponent @JvmOverloads constructor(
             insetBottom = 0
             alpha = newAlpha
             cornerRadius = 90
-            setBackgroundColor(color)
+            setBackgroundColor(ContextCompat.getColor(context, color))
             setOnClickListener { callback?.invoke() }
         }
     }
