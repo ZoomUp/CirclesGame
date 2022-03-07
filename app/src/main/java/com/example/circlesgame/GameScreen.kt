@@ -21,7 +21,6 @@ class GameScreen : Fragment() {
         R.color.Chartreuse, R.color.Chocolate, R.color.Coral, R.color.CornflowerBlue
     )
     private var startCount = 6
-    private var changeColor = 0..15
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,7 +44,7 @@ class GameScreen : Fragment() {
     private fun createGameCircle() {
         _binding?.gameCircles?.apply {
             callbackByChangeStandard = { correctAnswer() }
-            callbackByChangeStandard = { notCorrectAnswer() }
+            callbackByStandard = { notCorrectAnswer() }
             startCountCircle = startCount
             startColor = listColor.random()
             changeAlpha = changeAlphaCircle
@@ -59,7 +58,7 @@ class GameScreen : Fragment() {
         _binding?.gameCircles?.apply {
             deleteAllCircle()
             callbackByChangeStandard = { correctAnswer() }
-            callbackByChangeStandard = { notCorrectAnswer() }
+            callbackByStandard = { notCorrectAnswer() }
             startCountCircle = startCount
             startColor = listColor.random()
             changeAlpha = changeAlphaCircle

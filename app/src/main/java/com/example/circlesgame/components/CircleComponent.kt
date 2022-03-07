@@ -26,7 +26,7 @@ class CircleComponent @JvmOverloads constructor(
         R.styleable.ColorCircle_color_corner,
         ContextCompat.getColor(context, DEFAULT_COLOR)
     )
-    var startCountCircle = 20
+    var startCountCircle = 6
     var standardAlpha = 1f
     var changeAlpha = 0.9f
     var callbackByStandard: (()->Unit)? = null
@@ -34,7 +34,7 @@ class CircleComponent @JvmOverloads constructor(
 
     fun start() {
         var i = 0
-        val randomCircle = (0..startCountCircle).random()
+        val randomCircle = (0 until startCountCircle).random()
         while (i < startCountCircle) {
             if (i == randomCircle) _binding.parentLiner.addView(
                 createStandardButton(
