@@ -28,9 +28,9 @@ class CircleComponent @JvmOverloads constructor(
     )
     var startCountCircle = 6
     var standardAlpha = 1f
-    var changeAlpha = 0.9f
-    var callbackByStandard: (()->Unit)? = null
-    var callbackByChangeStandard: (()->Unit)? = null
+    var changeAlpha = 0.50f
+    var callbackNegative: (() -> Unit)? = null
+    var callbackPositive: (() -> Unit)? = null
 
     fun start() {
         var i = 0
@@ -40,22 +40,21 @@ class CircleComponent @JvmOverloads constructor(
                 createStandardButton(
                     startColor,
                     changeAlpha,
-                    callbackByChangeStandard
+                    callbackPositive
                 )
-            )
-            _binding.parentLiner.addView(createStandardButton())
+            ) else _binding.parentLiner.addView(createStandardButton())
             i++
         }
     }
 
-    fun deleteAllCircle(){
+    fun deleteAllCircle() {
         _binding.parentLiner.removeAllViews()
     }
 
     private fun createStandardButton(
         color: Int = startColor,
         newAlpha: Float = standardAlpha,
-        callback: (()->Unit)? = callbackByStandard
+        callback: (() -> Unit)? = callbackNegative
     ): MaterialButton {
         return MaterialButton(context).apply {
             layoutParams = LayoutParams(100, 100)

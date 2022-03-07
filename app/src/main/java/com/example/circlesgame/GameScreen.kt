@@ -38,32 +38,13 @@ class GameScreen : Fragment() {
                 findNavController().navigate(R.id.action_GameScreen_to_MainScreen)
             }
         }
-        createGameCircle()
-    }
-
-    private fun createGameCircle() {
-        _binding?.gameCircles?.apply {
-            callbackByChangeStandard = { correctAnswer() }
-            callbackByStandard = { notCorrectAnswer() }
-            startCountCircle = startCount
-            startColor = listColor.random()
-            changeAlpha = changeAlphaCircle
-            start()
-        }
+        createCircle()
     }
 
     private fun correctAnswer() {
         startCount += 2
         changeAlphaCircle += 0.05f
-        _binding?.gameCircles?.apply {
-            deleteAllCircle()
-            callbackByChangeStandard = { correctAnswer() }
-            callbackByStandard = { notCorrectAnswer() }
-            startCountCircle = startCount
-            startColor = listColor.random()
-            changeAlpha = changeAlphaCircle
-            start()
-        }
+        createCircle()
         score += 100
         binding.countScore.text = score.toString()
     }
@@ -71,17 +52,21 @@ class GameScreen : Fragment() {
     private fun notCorrectAnswer() {
         startCount = 6
         changeAlphaCircle = 0.50f
+        createCircle()
+        score = 0
+        binding.countScore.text = score.toString()
+    }
+
+    private fun createCircle() {
         _binding?.gameCircles?.apply {
             deleteAllCircle()
-            callbackByChangeStandard = { correctAnswer() }
-            callbackByChangeStandard = { notCorrectAnswer() }
+            callbackPositive = { correctAnswer() }
+            callbackNegative = { notCorrectAnswer() }
             startCountCircle = startCount
             startColor = listColor.random()
             changeAlpha = changeAlphaCircle
             start()
         }
-        score = 0
-        binding.countScore.text = score.toString()
     }
 
     override fun onDestroyView() {
