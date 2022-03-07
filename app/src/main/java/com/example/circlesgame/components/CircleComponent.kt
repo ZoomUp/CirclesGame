@@ -26,7 +26,7 @@ class CircleComponent @JvmOverloads constructor(
         R.styleable.ColorCircle_color_corner,
         ContextCompat.getColor(context, DEFAULT_COLOR)
     )
-    var startCountCircle = 4
+    var startCountCircle = 20
 
     init {
         start()
@@ -37,25 +37,22 @@ class CircleComponent @JvmOverloads constructor(
         var i = 0
         val randomCircle = (0..startCountCircle).random()
         while (i < startCountCircle) {
-            if (i == randomCircle) _binding.parentLiner.addView(createStandardButton())
+            if (i == randomCircle) _binding.parentLiner.addView(createStandardButton(startColor,0.9f))
             _binding.parentLiner.addView(createStandardButton())
             i++
         }
     }
 
-    private fun createStandardButton(color: Int = startColor): MaterialButton {
+    private fun createStandardButton(color: Int = startColor, newAlpha: Float = 1f): MaterialButton {
         return MaterialButton(context).apply {
             layoutParams = LayoutParams(100, 100)
             insetTop = 0
             insetBottom = 0
+            alpha = newAlpha
             cornerRadius = 90
             setBackgroundColor(color)
             setOnClickListener { }
         }
-    }
-
-    private fun changeBackgroundColor(color: Int): Int {
-        return color
     }
 
 }
