@@ -36,14 +36,13 @@ class CircleComponent @JvmOverloads constructor(
         var i = 0
         val randomCircle = (0 until startCountCircle).random()
         _binding.parentLiner.columnCount = when (startCountCircle) {
-            12 -> 4
-            15 -> 5
-            18 -> 6
-            21 -> 7
-            24 -> 8
-            27 -> 3
-            36 -> 6
-            else -> 5
+            in 25..27 -> 3
+            in 1..12 -> 4
+            in 13..15 -> 5
+            in 16..18, in 28..60 -> 6
+            in 19..21, in 61..70 -> 7
+            in 22..24, in 71..80 -> 8
+            else -> 8
 
         }
         while (i < startCountCircle) {

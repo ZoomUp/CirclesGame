@@ -1,6 +1,7 @@
 package com.example.circlesgame
 
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,6 +24,8 @@ class GameScreen : Fragment() {
         R.color.DarkBlue, R.color.DarkCyan, R.color.DarkGoldenrod, R.color.DarkGray
     )
     private var startCount = 3
+    private var counterTimer = 0
+    private lateinit var timer: CountDownTimer
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,14 +44,20 @@ class GameScreen : Fragment() {
             }
         }
         createCircle()
+        startTimeCounter()
     }
 
     private fun correctAnswer() {
         Toast.makeText(context, "Правильно!", Toast.LENGTH_SHORT).show()
-        startCount += 3
+        if (startCount < 80) startCount += 3
         changeAlphaCircle += 0.02f
         createCircle()
         score += 100
+        counterTimer = 0
+        timer.apply {
+            cancel()
+            start()
+        }
         binding.countScore.text = score.toString()
     }
 
@@ -59,10 +68,15 @@ class GameScreen : Fragment() {
         createCircle()
         score = 0
         binding.countScore.text = score.toString()
+        counterTimer = 0
+        timer.apply {
+            cancel()
+            start()
+        }
     }
 
     private fun createCircle() {
-        _binding?.gameCircles?.apply {
+        binding.gameCircles.apply {
             deleteAllCircle()
             callbackPositive = { correctAnswer() }
             callbackNegative = { notCorrectAnswer() }
@@ -73,8 +87,23 @@ class GameScreen : Fragment() {
         }
     }
 
+    private fun startTimeCounter() {
+        timer = object : CountDownTimer(10000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                binding.timer.text = "Timer: $counterTimer"
+                counterTimer++
+            }
+
+            override fun onFinish() {
+                counterTimer = 0
+                notCorrectAnswer()
+            }
+        }.start()
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }
