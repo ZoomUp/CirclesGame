@@ -1,5 +1,6 @@
 package com.example.circlesgame
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -33,7 +34,8 @@ class MainScreen : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.root.background = SettingsStorage.mainBackgroudColor.toDrawable()
+
+        binding.MainScreen.background = SettingsStorage.mainBackgroudColor.toDrawable()
 
         binding.buttonStart.setOnClickListener {
             findNavController().navigate(R.id.action_MainScreen_to_GameScreen)
