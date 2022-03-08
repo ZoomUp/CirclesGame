@@ -18,9 +18,10 @@ class GameScreen : Fragment() {
         R.color.AliceBlue, R.color.AntiqueWhite, R.color.Aqua, R.color.Aquamarine,
         R.color.Azure, R.color.Beige, R.color.Bisque, R.color.Black, R.color.BlanchedAlmond,
         R.color.Blue, R.color.BlueViolet, R.color.Brown, R.color.BurlyWood, R.color.CadetBlue,
-        R.color.Chartreuse, R.color.Chocolate, R.color.Coral, R.color.CornflowerBlue
+        R.color.Chartreuse, R.color.Chocolate, R.color.Coral, R.color.CornflowerBlue,
+        R.color.DarkBlue, R.color.DarkCyan, R.color.DarkGoldenrod, R.color.DarkGray
     )
-    private var startCount = 6
+    private var startCount = 3
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,15 +43,15 @@ class GameScreen : Fragment() {
     }
 
     private fun correctAnswer() {
-        startCount += 2
-        changeAlphaCircle += 0.05f
+        startCount += 3
+        changeAlphaCircle += 0.02f
         createCircle()
         score += 100
         binding.countScore.text = score.toString()
     }
 
     private fun notCorrectAnswer() {
-        startCount = 6
+        startCount = 3
         changeAlphaCircle = 0.50f
         createCircle()
         score = 0

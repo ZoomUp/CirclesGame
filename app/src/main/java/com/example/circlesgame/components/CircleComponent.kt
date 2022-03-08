@@ -26,7 +26,7 @@ class CircleComponent @JvmOverloads constructor(
         R.styleable.ColorCircle_color_corner,
         ContextCompat.getColor(context, DEFAULT_COLOR)
     )
-    var startCountCircle = 6
+    var startCountCircle = 3
     var standardAlpha = 1f
     var changeAlpha = 0.50f
     var callbackNegative: (() -> Unit)? = null
@@ -35,6 +35,17 @@ class CircleComponent @JvmOverloads constructor(
     fun start() {
         var i = 0
         val randomCircle = (0 until startCountCircle).random()
+        _binding.parentLiner.columnCount = when (startCountCircle) {
+            12 -> 4
+            15 -> 5
+            18 -> 6
+            21 -> 7
+            24 -> 8
+            27 -> 3
+            36 -> 6
+            else -> 5
+
+        }
         while (i < startCountCircle) {
             if (i == randomCircle) _binding.parentLiner.addView(
                 createStandardButton(
@@ -48,7 +59,11 @@ class CircleComponent @JvmOverloads constructor(
     }
 
     fun deleteAllCircle() {
-        _binding.parentLiner.removeAllViews()
+        _binding.parentLiner.apply {
+            removeAllViews()
+            columnCount = 3
+        }
+
     }
 
     private fun createStandardButton(
@@ -57,7 +72,7 @@ class CircleComponent @JvmOverloads constructor(
         callback: (() -> Unit)? = callbackNegative
     ): MaterialButton {
         return MaterialButton(context).apply {
-            layoutParams = LayoutParams(100, 100)
+            layoutParams = LayoutParams(120, 120)
             insetTop = 0
             insetBottom = 0
             alpha = newAlpha
