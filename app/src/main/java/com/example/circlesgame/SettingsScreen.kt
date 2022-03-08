@@ -1,5 +1,6 @@
 package com.example.circlesgame
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,7 +14,6 @@ import com.example.circlesgame.storages.SettingsStorage
 class SettingsScreen : Fragment() {
 
     private var _binding: FragmentSettingsScreenBinding? = null
-
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
