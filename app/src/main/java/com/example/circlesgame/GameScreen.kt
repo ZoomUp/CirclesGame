@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.circlesgame.databinding.FragmentGameScreenBinding
@@ -43,6 +44,7 @@ class GameScreen : Fragment() {
     }
 
     private fun correctAnswer() {
+        Toast.makeText(context, "Правильно!", Toast.LENGTH_SHORT).show()
         startCount += 3
         changeAlphaCircle += 0.02f
         createCircle()
@@ -51,6 +53,7 @@ class GameScreen : Fragment() {
     }
 
     private fun notCorrectAnswer() {
+        Toast.makeText(context, "Не верно!", Toast.LENGTH_SHORT).show()
         startCount = 3
         changeAlphaCircle = 0.50f
         createCircle()
