@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.graphics.drawable.toDrawable
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.circlesgame.databinding.FragmentGameScreenBinding
+import com.example.circlesgame.storages.SettingsStorage
 
 class GameScreen : Fragment() {
 
@@ -24,7 +26,7 @@ class GameScreen : Fragment() {
         R.color.DarkBlue, R.color.DarkCyan, R.color.DarkGoldenrod, R.color.DarkGray
     )
     private var startCount = 3
-    private var counterTimer = 0
+    private var counterTimer = 11000L
     private lateinit var timer: CountDownTimer
 
     override fun onCreateView(
@@ -38,6 +40,7 @@ class GameScreen : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
+            root.background = SettingsStorage.mainBackgroudColor.toDrawable()
             countScore.text = score.toString()
             btnMenu.setOnClickListener {
                 findNavController().navigate(R.id.action_GameScreen_to_MainScreen)
@@ -53,7 +56,6 @@ class GameScreen : Fragment() {
         changeAlphaCircle += 0.02f
         createCircle()
         score += 100
-        counterTimer = 0
         timer.apply {
             cancel()
             start()
@@ -68,7 +70,6 @@ class GameScreen : Fragment() {
         createCircle()
         score = 0
         binding.countScore.text = score.toString()
-        counterTimer = 0
         timer.apply {
             cancel()
             start()
@@ -88,14 +89,12 @@ class GameScreen : Fragment() {
     }
 
     private fun startTimeCounter() {
-        timer = object : CountDownTimer(10000, 1000) {
+        timer = object : CountDownTimer(counterTimer, 1000) {
             override fun onTick(millisUntilFinished: Long) {
-                binding.timer.text = "Timer: $counterTimer"
-                counterTimer++
+                binding.timer.text = "Timer: ${millisUntilFinished / 1000}"
             }
 
             override fun onFinish() {
-                counterTimer = 0
                 notCorrectAnswer()
             }
         }.start()
