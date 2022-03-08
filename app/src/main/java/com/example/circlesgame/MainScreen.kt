@@ -35,6 +35,9 @@ class MainScreen : Fragment() {
         binding.buttonStart.setOnClickListener {
             findNavController().navigate(R.id.action_MainScreen_to_GameScreen)
         }
+        binding.buttonSettings.setOnClickListener {
+            findNavController().navigate(R.id.action_MainScreen_to_settingsScreen)
+        }
     }
 
     override fun onDestroyView() {
