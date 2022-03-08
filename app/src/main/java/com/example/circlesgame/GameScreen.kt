@@ -103,6 +103,7 @@ class GameScreen : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        timer.cancel()
         _binding = null
     }
 
