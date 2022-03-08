@@ -3,7 +3,9 @@ package com.example.circlesgame
 import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.Color
+import android.media.MediaPlayer
 import android.os.Bundle
+import android.util.AttributeSet
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -12,6 +14,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import com.example.circlesgame.databinding.ActivityMainBinding
 import com.example.circlesgame.storages.SettingsStorage
 
@@ -20,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private lateinit var sharedPref : SharedPreferences
+    private lateinit var music : MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,10 +40,15 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-
+        if (!this::music.isInitialized) {
+            music = MediaPlayer.create(applicationContext, R.raw.bensound)
+            music.isLooping = true
+            music.start()
+        }
     }
 
     override fun onStop() {
+        music.stop()
         with (sharedPref.edit()) {
             putInt("BACKGROUND_COLOR", SettingsStorage.mainBackgroudColor)
             apply()

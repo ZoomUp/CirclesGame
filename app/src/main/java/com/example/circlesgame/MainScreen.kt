@@ -1,6 +1,7 @@
 package com.example.circlesgame
 
 import android.content.Context
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -34,7 +35,9 @@ class MainScreen : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        val music = MediaPlayer.create(context, R.raw.bensound)
+        music.isLooping = true
+        music.start()
         binding.MainScreen.background = SettingsStorage.mainBackgroudColor.toDrawable()
 
         binding.buttonStart.setOnClickListener {
