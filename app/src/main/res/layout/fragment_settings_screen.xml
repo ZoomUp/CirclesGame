@@ -8,8 +8,10 @@
         android:id="@+id/textView_background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Background"
+        android:layout_marginTop="46dp"
+        android:textSize="26sp"
+        android:textColor="@color/Black"
+        android:text="Задний фон"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -17,7 +19,7 @@
     <Button
         android:id="@+id/button_white"
         android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:text="White"
         app:layout_constraintEnd_toStartOf="@+id/button_green"
@@ -27,7 +29,7 @@
     <Button
         android:id="@+id/button_green"
         android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:text="Green"
         app:layout_constraintEnd_toStartOf="@+id/button_cyan"
         app:layout_constraintStart_toEndOf="@+id/button_white"
@@ -36,7 +38,7 @@
     <Button
         android:id="@+id/button_cyan"
         android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:text="Cyan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_green"
@@ -45,7 +47,7 @@
     <Button
         android:id="@+id/button_yellow"
         android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:text="Yellow"
         app:layout_constraintEnd_toStartOf="@+id/button_gray"
@@ -55,7 +57,7 @@
     <Button
         android:id="@+id/button_gray"
         android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="2dp"
         android:text="Gray"
         app:layout_constraintEnd_toStartOf="@+id/button_magenta"
@@ -65,10 +67,26 @@
     <Button
         android:id="@+id/button_magenta"
         android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="2dp"
         android:text="Magenta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_gray"
         app:layout_constraintTop_toTopOf="@+id/button_yellow" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginVertical="40dp"
+        android:background="#3FB190"
+        android:text="В меню"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

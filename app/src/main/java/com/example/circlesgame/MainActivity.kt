@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         sharedPref = this.getPreferences(Context.MODE_PRIVATE)
-        SettingsStorage.mainBackgroudColor = sharedPref.getInt("BACKGROUND_COLOR", Color.BLACK)
+        SettingsStorage.mainBackgroudColor = sharedPref.getInt("BACKGROUND_COLOR", Color.WHITE)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

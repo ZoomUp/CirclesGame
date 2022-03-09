@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat.finishAffinity
 import androidx.core.graphics.drawable.toDrawable
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.circlesgame.databinding.FragmentMainScreenBinding
 import com.example.circlesgame.storages.SettingsStorage
+import kotlin.system.exitProcess
 
 class MainScreen : Fragment() {
 
@@ -34,6 +36,9 @@ class MainScreen : Fragment() {
             }
             buttonSettings.setOnClickListener {
                 findNavController().navigate(R.id.action_MainScreen_to_settingsScreen)
+            }
+            buttonExit.setOnClickListener{
+                exitProcess(-1)
             }
         }
     }
