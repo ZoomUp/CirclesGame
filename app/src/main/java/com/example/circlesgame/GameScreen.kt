@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.circlesgame.databinding.FragmentGameScreenBinding
 import com.example.circlesgame.storages.SettingsStorage
+import com.example.circlesgame.storages.SettingsStorage.listRecords
 
 class GameScreen : Fragment() {
 
@@ -40,7 +41,7 @@ class GameScreen : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
-            root.background = SettingsStorage.mainBackgroudColor.toDrawable()
+            root.background = SettingsStorage.mainBackgroundColor.toDrawable()
             countScore.text = score.toString()
             btnMenu.setOnClickListener {
                 findNavController().navigate(R.id.action_GameScreen_to_MainScreen)
@@ -68,6 +69,7 @@ class GameScreen : Fragment() {
         startCount = 3
         changeAlphaCircle = 0.50f
         createCircle()
+        listRecords.add(score)
         score = 0
         binding.countScore.text = score.toString()
         timer.apply {

@@ -4,14 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
 import com.example.circlesgame.databinding.ActivityMainBinding
 import com.example.circlesgame.storages.SettingsStorage
 
@@ -24,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         sharedPref = this.getPreferences(Context.MODE_PRIVATE)
-        SettingsStorage.mainBackgroudColor = sharedPref.getInt("BACKGROUND_COLOR", Color.WHITE)
+        SettingsStorage.mainBackgroundColor = sharedPref.getInt("BACKGROUND_COLOR", Color.WHITE)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -33,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStop() {
         with (sharedPref.edit()) {
-            putInt("BACKGROUND_COLOR", SettingsStorage.mainBackgroudColor)
+            putInt("BACKGROUND_COLOR", SettingsStorage.mainBackgroundColor)
             apply()
         }
         super.onStop()

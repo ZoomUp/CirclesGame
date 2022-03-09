@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ActivityCompat.finishAffinity
 import androidx.core.graphics.drawable.toDrawable
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -30,7 +29,7 @@ class MainScreen : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
-            MainScreen.background = SettingsStorage.mainBackgroudColor.toDrawable()
+            MainScreen.background = SettingsStorage.mainBackgroundColor.toDrawable()
             buttonStart.setOnClickListener {
                 findNavController().navigate(R.id.action_MainScreen_to_GameScreen)
             }

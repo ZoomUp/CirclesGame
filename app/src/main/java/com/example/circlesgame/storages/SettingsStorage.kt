@@ -3,5 +3,6 @@ package com.example.circlesgame.storages
 import android.graphics.Color
 
 object SettingsStorage {
-    var mainBackgroudColor = Color.WHITE
+    var mainBackgroundColor = Color.WHITE
+    var listRecords = mutableListOf<Int>()
 }
