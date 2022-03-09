@@ -39,6 +39,9 @@ class MainScreen : Fragment() {
             buttonExit.setOnClickListener{
                 exitProcess(-1)
             }
+            buttonRecords.setOnClickListener{
+                findNavController().navigate(R.id.action_MainScreen_to_recordsScreen)
+            }
         }
     }
 

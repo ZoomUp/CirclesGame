@@ -44,6 +44,7 @@ class GameScreen : Fragment() {
             root.background = SettingsStorage.mainBackgroundColor.toDrawable()
             countScore.text = score.toString()
             btnMenu.setOnClickListener {
+                listRecords.list.add(score)
                 findNavController().navigate(R.id.action_GameScreen_to_MainScreen)
             }
         }
@@ -69,7 +70,7 @@ class GameScreen : Fragment() {
         startCount = 3
         changeAlphaCircle = 0.50f
         createCircle()
-        listRecords.add(score)
+        listRecords.list.add(score)
         score = 0
         binding.countScore.text = score.toString()
         timer.apply {
