@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.example.circlesgame.databinding.FragmentNotificationBinding
 
-class ResultsDialogFragment(var score: Int): DialogFragment() {
+class ResultsDialogFragment(var score: Int, var notificationCallback: () -> Unit = {}): DialogFragment() {
 
     private lateinit var binding: FragmentNotificationBinding
 
@@ -19,6 +19,7 @@ class ResultsDialogFragment(var score: Int): DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentNotificationBinding.inflate(inflater, container, false)
+        binding.txtMessage.text = score.toString()
         return binding.root
     }
 
@@ -27,6 +28,7 @@ class ResultsDialogFragment(var score: Int): DialogFragment() {
 
         super.onViewCreated(view, savedInstanceState)
         binding.btnOk.setOnClickListener {
+            notificationCallback.invoke()
             dismiss()
         }
     }

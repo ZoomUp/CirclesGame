@@ -23,7 +23,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:background="@color/Gray">
+            android:background="@color/Coral">
 
             <ImageView
                 android:id="@+id/img_notification"
@@ -55,9 +55,9 @@
                 android:layout_marginTop="2dp"
                 android:gravity="center"
                 android:text=""
-                android:textColor="@color/DarkGray"
+                android:textColor="@color/Blue"
                 android:textFontWeight="500"
-                android:textSize="14sp"
+                android:textSize="22sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_notification" />

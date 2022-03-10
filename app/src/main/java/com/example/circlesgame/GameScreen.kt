@@ -66,7 +66,11 @@ class GameScreen : Fragment() {
     }
 
     private fun notCorrectAnswer() {
-        ResultsDialogFragment(score).show(childFragmentManager, ResultsDialogFragment.TAG)
+        timer.cancel()
+        ResultsDialogFragment(score) { restartGame() }.show(childFragmentManager, ResultsDialogFragment.TAG)
+    }
+
+    private fun restartGame() {
         startCount = 3
         changeAlphaCircle = 0.50f
         createCircle()
