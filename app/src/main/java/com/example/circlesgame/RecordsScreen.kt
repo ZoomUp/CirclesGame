@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.circlesgame.adapters.RecordsAdapter
 import com.example.circlesgame.databinding.FragmentRecordsScreenBinding
 
 class RecordsScreen : Fragment() {
 
     private var _binding: FragmentRecordsScreenBinding? = null
     private val binding get() = _binding!!
+    private val recordsAdapter = RecordsAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,9 +32,13 @@ class RecordsScreen : Fragment() {
             btnMenu.setOnClickListener {
                 findNavController().navigate(R.id.action_recordsScreen_to_MainScreen)
             }
-            recyclerRecords
-        }
+            recyclerRecords.apply {
+                adapter = recordsAdapter
+                itemAnimator = null
 
+            }
+        }
+        recordsAdapter.notifyDataSetChanged()
     }
 
     override fun onDestroyView() {
