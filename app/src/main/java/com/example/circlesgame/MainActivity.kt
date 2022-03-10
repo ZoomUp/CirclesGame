@@ -40,11 +40,11 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        if (!this::music.isInitialized) {
-            music = MediaPlayer.create(applicationContext, R.raw.bensound)
-            music.isLooping = true
-            music.start()
-        }
+
+        music = MediaPlayer.create(applicationContext, R.raw.bensound)
+        music.isLooping = true
+        music.start()
+
     }
 
     override fun onStop() {
