@@ -1,6 +1,5 @@
 package com.example.circlesgame
 
-import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,14 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.graphics.drawable.toDrawable
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.circlesgame.databinding.FragmentSettingsScreenBinding
 import com.example.circlesgame.storages.SettingsStorage
 
 class SettingsScreen : Fragment() {
 
     private var _binding: FragmentSettingsScreenBinding? = null
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -31,8 +29,11 @@ class SettingsScreen : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initBackgroundColorButtons()
-        binding.root.background = SettingsStorage.mainBackgroudColor.toDrawable()
+        binding.root.background = SettingsStorage.mainBackgroundColor.toDrawable()
 
+        binding.btnMenu.setOnClickListener {
+            findNavController().navigate(R.id.action_settingsScreen_to_MainScreen)
+        }
     }
 
     override fun onDestroyView() {
@@ -42,33 +43,33 @@ class SettingsScreen : Fragment() {
 
     private fun initBackgroundColorButtons() {
         binding.buttonWhite.setOnClickListener {
-            SettingsStorage.mainBackgroudColor = Color.WHITE
-            binding.root.background = SettingsStorage.mainBackgroudColor.toDrawable()
+            SettingsStorage.mainBackgroundColor = Color.WHITE
+            binding.root.background = SettingsStorage.mainBackgroundColor.toDrawable()
         }
 
         binding.buttonGreen.setOnClickListener {
-            SettingsStorage.mainBackgroudColor = Color.GREEN
-            binding.root.background = SettingsStorage.mainBackgroudColor.toDrawable()
+            SettingsStorage.mainBackgroundColor = Color.GREEN
+            binding.root.background = SettingsStorage.mainBackgroundColor.toDrawable()
         }
 
         binding.buttonCyan.setOnClickListener {
-            SettingsStorage.mainBackgroudColor = Color.CYAN
-            binding.root.background = SettingsStorage.mainBackgroudColor.toDrawable()
+            SettingsStorage.mainBackgroundColor = Color.CYAN
+            binding.root.background = SettingsStorage.mainBackgroundColor.toDrawable()
         }
 
         binding.buttonYellow.setOnClickListener {
-            SettingsStorage.mainBackgroudColor = Color.YELLOW
-            binding.root.background = SettingsStorage.mainBackgroudColor.toDrawable()
+            SettingsStorage.mainBackgroundColor = Color.YELLOW
+            binding.root.background = SettingsStorage.mainBackgroundColor.toDrawable()
         }
 
         binding.buttonGray.setOnClickListener {
-            SettingsStorage.mainBackgroudColor = Color.GRAY
-            binding.root.background = SettingsStorage.mainBackgroudColor.toDrawable()
+            SettingsStorage.mainBackgroundColor = Color.GRAY
+            binding.root.background = SettingsStorage.mainBackgroundColor.toDrawable()
         }
 
         binding.buttonMagenta.setOnClickListener {
-            SettingsStorage.mainBackgroudColor = Color.MAGENTA
-            binding.root.background = SettingsStorage.mainBackgroudColor.toDrawable()
+            SettingsStorage.mainBackgroundColor = Color.MAGENTA
+            binding.root.background = SettingsStorage.mainBackgroundColor.toDrawable()
         }
     }
 }
