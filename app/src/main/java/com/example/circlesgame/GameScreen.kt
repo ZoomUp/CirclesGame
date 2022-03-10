@@ -53,7 +53,7 @@ class GameScreen : Fragment() {
     }
 
     private fun correctAnswer() {
-        Toast.makeText(context, "Правильно!", Toast.LENGTH_SHORT).show()
+
         if (startCount < 80) startCount += 3
         changeAlphaCircle += 0.02f
         createCircle()
@@ -66,7 +66,7 @@ class GameScreen : Fragment() {
     }
 
     private fun notCorrectAnswer() {
-        Toast.makeText(context, "Не верно!", Toast.LENGTH_SHORT).show()
+        ResultsDialogFragment(score).show(childFragmentManager, ResultsDialogFragment.TAG)
         startCount = 3
         changeAlphaCircle = 0.50f
         createCircle()
