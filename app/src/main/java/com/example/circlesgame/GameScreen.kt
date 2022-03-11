@@ -1,17 +1,19 @@
 package com.example.circlesgame
 
+import android.content.Context
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.graphics.drawable.toDrawable
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.circlesgame.databinding.FragmentGameScreenBinding
 import com.example.circlesgame.storages.SettingsStorage
 import com.example.circlesgame.storages.SettingsStorage.listRecords
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
 class GameScreen : Fragment() {
 
@@ -45,6 +47,10 @@ class GameScreen : Fragment() {
             countScore.text = score.toString()
             btnMenu.setOnClickListener {
                 if (score != 0) listRecords.list.add(score)
+                with(activity?.getPreferences(Context.MODE_PRIVATE)?.edit()) {
+                    this?.putString("RECORDS_USER", Json.encodeToString(listRecords))
+                    this?.apply()
+                }
                 findNavController().navigate(R.id.action_GameScreen_to_MainScreen)
             }
         }
@@ -67,7 +73,10 @@ class GameScreen : Fragment() {
 
     private fun notCorrectAnswer() {
         timer.cancel()
-        ResultsDialogFragment(score) { restartGame() }.show(childFragmentManager, ResultsDialogFragment.TAG)
+        ResultsDialogFragment(score) { restartGame() }.show(
+            childFragmentManager,
+            ResultsDialogFragment.TAG
+        )
     }
 
     private fun restartGame() {

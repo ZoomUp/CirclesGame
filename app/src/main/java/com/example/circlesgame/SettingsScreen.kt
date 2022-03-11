@@ -1,5 +1,6 @@
 package com.example.circlesgame
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -32,6 +33,10 @@ class SettingsScreen : Fragment() {
         binding.root.background = SettingsStorage.mainBackgroundColor.toDrawable()
 
         binding.btnMenu.setOnClickListener {
+            with(activity?.getPreferences(Context.MODE_PRIVATE)?.edit()) {
+                this?.putInt("BACKGROUND_COLOR", SettingsStorage.mainBackgroundColor)
+                this?.apply()
+            }
             findNavController().navigate(R.id.action_settingsScreen_to_MainScreen)
         }
     }
