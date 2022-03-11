@@ -18,6 +18,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_records"
+        android:background="@color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
