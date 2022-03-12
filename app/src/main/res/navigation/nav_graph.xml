@@ -8,7 +8,6 @@
     <fragment
         android:id="@+id/MainScreen"
         android:name="com.example.circlesgame.MainScreen"
-        android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_main_screen">
 
         <action
@@ -24,7 +23,6 @@
     <fragment
         android:id="@+id/GameScreen"
         android:name="com.example.circlesgame.GameScreen"
-        android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_game_screen">
         <action
             android:id="@+id/action_GameScreen_to_MainScreen"

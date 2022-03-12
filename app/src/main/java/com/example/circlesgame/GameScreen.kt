@@ -103,7 +103,7 @@ class GameScreen : Fragment() {
     private fun startTimeCounter() {
         timer = object : CountDownTimer(counterTimer, 1000) {
             override fun onTick(millisUntilFinished: Long) {
-                binding.timer.text = "Timer: ${millisUntilFinished / 1000}"
+                binding.timer.text = " ${millisUntilFinished / 1000}"
             }
 
             override fun onFinish() {

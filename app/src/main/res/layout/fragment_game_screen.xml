@@ -26,7 +26,7 @@
         android:layout_marginHorizontal="40dp"
         android:layout_marginVertical="20dp"
         android:background="#3FB190"
-        android:text="menu"
+        android:text="@string/back_to_menu"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +41,7 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="20dp"
         android:gravity="end"
-        android:text="Score:"
+        android:text="@string/score"
         android:textColor="@color/black"
         android:textSize="25sp"
         app:layout_constraintEnd_toStartOf="@+id/count_score"
@@ -63,14 +63,27 @@
 
     <TextView
         android:id="@+id/timer"
-        android:textColor="@color/Black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="20dp"
+        android:textColor="@color/Black"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/timer_text"
         app:layout_constraintTop_toBottomOf="@+id/txt_score"
-        tools:text="Timer: 10" />
+        tools:text="10" />
+
+    <TextView
+        android:id="@+id/timer_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="20dp"
+        android:textColor="@color/Black"
+        android:textSize="25sp"
+        android:text="@string/timer"
+        app:layout_constraintEnd_toStartOf="@+id/timer"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_score"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
