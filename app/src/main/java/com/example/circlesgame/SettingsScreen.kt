@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.circlesgame.databinding.FragmentSettingsScreenBinding
 import com.example.circlesgame.storages.SettingsStorage
+import kotlin.random.Random
 
 class SettingsScreen : Fragment() {
 
@@ -73,8 +74,13 @@ class SettingsScreen : Fragment() {
         }
 
         binding.buttonMagenta.setOnClickListener {
-            SettingsStorage.mainBackgroundColor = Color.MAGENTA
+            SettingsStorage.mainBackgroundColor = generateColor()
             binding.root.background = SettingsStorage.mainBackgroundColor.toDrawable()
         }
+    }
+
+    private fun generateColor(): Int {
+        val random = Random.Default
+        return Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256))
     }
 }

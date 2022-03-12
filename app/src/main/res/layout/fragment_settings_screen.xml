@@ -9,80 +9,111 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="46dp"
-        android:textSize="26sp"
-        android:textColor="@color/Black"
         android:text="Задний фон"
+        android:textColor="@color/Black"
+        android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_white"
-        android:layout_width="100dp"
+        android:layout_width="120dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
-        android:text="White"
+        android:text="Белый"
+        android:textColor="@color/Black"
+        app:backgroundTint="@color/white"
+        app:cornerRadius="90dp"
         app:layout_constraintEnd_toStartOf="@+id/button_green"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_background" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_background"
+        app:strokeColor="@color/Red"
+        app:strokeWidth="1dp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_green"
-        android:layout_width="100dp"
+        android:layout_width="120dp"
         android:layout_height="60dp"
-        android:text="Green"
+        android:text="Зеленый"
+        android:textColor="@color/Black"
+        app:backgroundTint="@color/Green"
+        app:cornerRadius="90dp"
         app:layout_constraintEnd_toStartOf="@+id/button_cyan"
         app:layout_constraintStart_toEndOf="@+id/button_white"
-        app:layout_constraintTop_toTopOf="@+id/button_white" />
+        app:layout_constraintTop_toTopOf="@+id/button_white"
+        app:strokeColor="@color/Red"
+        app:strokeWidth="1dp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_cyan"
-        android:layout_width="100dp"
+        android:layout_width="120dp"
         android:layout_height="60dp"
-        android:text="Cyan"
+        android:text="Голубой"
+        android:textColor="@color/Black"
+        app:backgroundTint="@color/Cyan"
+        app:cornerRadius="90dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_green"
-        app:layout_constraintTop_toTopOf="@+id/button_white" />
+        app:layout_constraintTop_toTopOf="@+id/button_white"
+        app:strokeColor="@color/Red"
+        app:strokeWidth="1dp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_yellow"
-        android:layout_width="100dp"
+        android:layout_width="120dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
-        android:text="Yellow"
+        android:text="Желтый"
+        android:textColor="@color/Black"
+        app:backgroundTint="@color/Yellow"
+        app:cornerRadius="90dp"
         app:layout_constraintEnd_toStartOf="@+id/button_gray"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_white" />
+        app:layout_constraintTop_toBottomOf="@+id/button_white"
+        app:strokeColor="@color/Red"
+        app:strokeWidth="1dp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_gray"
-        android:layout_width="100dp"
+        android:layout_width="120dp"
         android:layout_height="60dp"
         android:layout_marginTop="2dp"
-        android:text="Gray"
+        android:text="Серый"
+        android:textColor="@color/Black"
+        app:backgroundTint="@color/Gray"
+        app:cornerRadius="90dp"
         app:layout_constraintEnd_toStartOf="@+id/button_magenta"
         app:layout_constraintStart_toEndOf="@+id/button_yellow"
-        app:layout_constraintTop_toTopOf="@+id/button_yellow" />
+        app:layout_constraintTop_toTopOf="@+id/button_yellow"
+        app:strokeColor="@color/Red"
+        app:strokeWidth="1dp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_magenta"
-        android:layout_width="100dp"
+        android:layout_width="120dp"
         android:layout_height="60dp"
         android:layout_marginTop="2dp"
-        android:text="Magenta"
+        android:text="Рандомный"
+        android:textColor="@color/Black"
+        app:backgroundTint="@color/transparent"
+        app:cornerRadius="90dp"
+        android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_gray"
-        app:layout_constraintTop_toTopOf="@+id/button_yellow" />
+        app:layout_constraintTop_toTopOf="@+id/button_yellow"
+        app:strokeColor="@color/Red"
+        app:strokeWidth="1dp" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginVertical="40dp"
-        android:background="#3FB190"
         android:text="В меню"
         android:textSize="25sp"
+        app:backgroundTint="#3FB190"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
