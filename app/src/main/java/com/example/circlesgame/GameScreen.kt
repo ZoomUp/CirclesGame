@@ -122,7 +122,7 @@ class GameScreen : Fragment() {
             if (listRecords.list.size < 8) {
                 listRecords.list.add(score)
             } else {
-                listRecords.list.sortedDescending()
+                listRecords.list.sortBy { it }
                 listRecords.list[0] = score
             }
         }
