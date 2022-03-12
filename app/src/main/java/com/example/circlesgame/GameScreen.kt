@@ -1,6 +1,7 @@
 package com.example.circlesgame
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import com.example.circlesgame.storages.SettingsStorage
 import com.example.circlesgame.storages.SettingsStorage.listRecords
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import kotlin.random.Random
 
 class GameScreen : Fragment() {
 
@@ -21,13 +23,6 @@ class GameScreen : Fragment() {
     private val binding get() = _binding!!
     private var score = 0
     private var changeAlphaCircle = 0.50f
-    private val listColor = listOf(
-        R.color.AliceBlue, R.color.AntiqueWhite, R.color.Aqua, R.color.Aquamarine,
-        R.color.Azure, R.color.Beige, R.color.Bisque, R.color.Black, R.color.BlanchedAlmond,
-        R.color.Blue, R.color.BlueViolet, R.color.Brown, R.color.BurlyWood, R.color.CadetBlue,
-        R.color.Chartreuse, R.color.Chocolate, R.color.Coral, R.color.CornflowerBlue,
-        R.color.DarkBlue, R.color.DarkCyan, R.color.DarkGoldenrod, R.color.DarkGray
-    )
     private var startCount = 3
     private var counterTimer = 11000L
     private lateinit var timer: CountDownTimer
@@ -60,8 +55,9 @@ class GameScreen : Fragment() {
 
     private fun correctAnswer() {
 
-        if (startCount < 80) startCount += 3
-        changeAlphaCircle += 0.02f
+        if (startCount < 78) startCount += 3
+        else startCount = 80
+        if (changeAlphaCircle != 0.85f) changeAlphaCircle += 0.01f
         createCircle()
         score += 100
         timer.apply {
@@ -81,7 +77,7 @@ class GameScreen : Fragment() {
 
     private fun restartGame() {
         startCount = 3
-        changeAlphaCircle = 0.50f
+        changeAlphaCircle = 0.30f
         createCircle()
         if (score != 0) listRecords.list.add(score)
         score = 0
@@ -98,7 +94,7 @@ class GameScreen : Fragment() {
             callbackPositive = { correctAnswer() }
             callbackNegative = { notCorrectAnswer() }
             startCountCircle = startCount
-            startColor = listColor.random()
+            startColor = generateColor()
             changeAlpha = changeAlphaCircle
             start()
         }
@@ -114,6 +110,11 @@ class GameScreen : Fragment() {
                 notCorrectAnswer()
             }
         }.start()
+    }
+
+    private fun generateColor(): Int {
+        val random = Random.Default
+        return Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256))
     }
 
     override fun onDestroyView() {
