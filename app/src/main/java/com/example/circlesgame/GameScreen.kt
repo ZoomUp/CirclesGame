@@ -41,7 +41,7 @@ class GameScreen : Fragment() {
             root.background = SettingsStorage.mainBackgroundColor.toDrawable()
             countScore.text = score.toString()
             btnMenu.setOnClickListener {
-                if (score != 0) listRecords.list.add(score)
+                addScore(score)
                 with(activity?.getPreferences(Context.MODE_PRIVATE)?.edit()) {
                     this?.putString("RECORDS_USER", Json.encodeToString(listRecords))
                     this?.apply()
@@ -79,7 +79,7 @@ class GameScreen : Fragment() {
         startCount = 3
         changeAlphaCircle = 0.30f
         createCircle()
-        if (score != 0) listRecords.list.add(score)
+        addScore(score)
         score = 0
         binding.countScore.text = score.toString()
         timer.apply {
@@ -115,6 +115,17 @@ class GameScreen : Fragment() {
     private fun generateColor(): Int {
         val random = Random.Default
         return Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256))
+    }
+
+    private fun addScore(score: Int) {
+        if (score != 0 && !listRecords.list.contains(score)) {
+            if (listRecords.list.size < 8) {
+                listRecords.list.add(score)
+            } else {
+                listRecords.list.sortedDescending()
+                listRecords.list[0] = score
+            }
+        }
     }
 
     override fun onDestroyView() {
