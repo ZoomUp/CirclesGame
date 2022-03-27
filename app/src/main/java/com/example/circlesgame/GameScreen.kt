@@ -1,5 +1,6 @@
 package com.example.circlesgame
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
@@ -39,7 +40,7 @@ class GameScreen : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             root.background = SettingsStorage.mainBackgroundColor.toDrawable()
-            countScore.text = score.toString()
+            countScore.text =  " ${score}"
             btnMenu.setOnClickListener {
                 addScore(score)
                 with(activity?.getPreferences(Context.MODE_PRIVATE)?.edit()) {
@@ -64,7 +65,7 @@ class GameScreen : Fragment() {
             cancel()
             start()
         }
-        binding.countScore.text = score.toString()
+        binding.countScore.text = " ${score}"
     }
 
     private fun notCorrectAnswer() {
@@ -81,7 +82,8 @@ class GameScreen : Fragment() {
         createCircle()
         addScore(score)
         score = 0
-        binding.countScore.text = score.toString()
+
+        binding.countScore.text = " ${score}"
         timer.apply {
             cancel()
             start()
