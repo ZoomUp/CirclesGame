@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         sharedPref = this.getPreferences(Context.MODE_PRIVATE)
         SettingsStorage.apply {
             mainBackgroundColor = sharedPref.getInt("BACKGROUND_COLOR", Color.WHITE)
+            buttonColorD = sharedPref.getInt("BUTTON_COlOR", Color.WHITE)
             val recordsInJson = sharedPref.getString("RECORDS_USER", gsonRecords)
             recordsInJson?.let { listRecords = Json.decodeFromString(it) }
         }
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         music.stop()
         with(sharedPref.edit()) {
             putInt("BACKGROUND_COLOR", SettingsStorage.mainBackgroundColor)
+            putInt("BUTTON_COlOR", SettingsStorage.buttonColorD)
             putString("RECORDS_USER", Json.encodeToString(SettingsStorage.listRecords))        
             apply()
         }

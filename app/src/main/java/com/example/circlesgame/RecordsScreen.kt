@@ -34,8 +34,11 @@ class RecordsScreen : Fragment() {
 
         binding.apply {
             root.background = SettingsStorage.mainBackgroundColor.toDrawable()
-            btnMenu.setOnClickListener {
-                findNavController().navigate(R.id.action_recordsScreen_to_MainScreen)
+            btnMenu.apply {
+                background = SettingsStorage.buttonColorD.toDrawable()
+                setOnClickListener {
+                    findNavController().navigate(R.id.action_recordsScreen_to_MainScreen)
+                }
             }
         }
         fillRecords()
