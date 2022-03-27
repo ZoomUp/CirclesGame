@@ -156,4 +156,11 @@
     <color name="gray_bg">#FFDBD7D7</color>
     <color name="pink_bg">#FFF8DCC8</color>
 
+    <!--Button colors -->
+    <color name="green_button">#FFCBF6CA</color>
+    <color name="blue_button">#FFD8ECF8</color>
+    <color name="yellow_button">#FFFEFFC1</color>
+    <color name="gray_button">#FFE7E4E4</color>
+    <color name="pink_button">#FFFAE7DA</color>
+
 </resources>

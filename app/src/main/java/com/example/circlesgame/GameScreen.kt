@@ -42,13 +42,16 @@ class GameScreen : Fragment() {
         binding.apply {
             root.background = SettingsStorage.mainBackgroundColor.toDrawable()
             countScore.text =  " ${score}"
-            btnMenu.setOnClickListener {
-                addScore(score)
-                with(activity?.getPreferences(Context.MODE_PRIVATE)?.edit()) {
-                    this?.putString("RECORDS_USER", Json.encodeToString(listRecords))
-                    this?.apply()
+            btnMenu.apply {
+                background = SettingsStorage.buttonColorD.toDrawable()
+                setOnClickListener {
+                    addScore(score)
+                    with(activity?.getPreferences(Context.MODE_PRIVATE)?.edit()) {
+                        this?.putString("RECORDS_USER", Json.encodeToString(listRecords))
+                        this?.apply()
+                    }
+                    findNavController().navigate(R.id.action_GameScreen_to_MainScreen)
                 }
-                findNavController().navigate(R.id.action_GameScreen_to_MainScreen)
             }
         }
         createCircle()

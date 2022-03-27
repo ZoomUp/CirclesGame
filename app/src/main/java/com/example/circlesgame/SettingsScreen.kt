@@ -34,12 +34,16 @@ class SettingsScreen : Fragment() {
         initBackgroundColorButtons()
         binding.root.background = SettingsStorage.mainBackgroundColor.toDrawable()
 
-        binding.btnMenu.setOnClickListener {
-            with(activity?.getPreferences(Context.MODE_PRIVATE)?.edit()) {
-                this?.putInt("BACKGROUND_COLOR", SettingsStorage.mainBackgroundColor)
-                this?.apply()
+        binding.btnMenu.apply {
+            background = SettingsStorage.buttonColorD.toDrawable()
+            setOnClickListener {
+                with(activity?.getPreferences(Context.MODE_PRIVATE)?.edit()) {
+                    this?.putInt("BACKGROUND_COLOR", SettingsStorage.mainBackgroundColor)
+                    this?.putInt("BUTTON_COlOR", SettingsStorage.buttonColorD)
+                    this?.apply()
+                }
+                findNavController().navigate(R.id.action_settingsScreen_to_MainScreen)
             }
-            findNavController().navigate(R.id.action_settingsScreen_to_MainScreen)
         }
     }
 
@@ -51,31 +55,43 @@ class SettingsScreen : Fragment() {
     private fun initBackgroundColorButtons() {
         binding.buttonWhite.setOnClickListener {
             SettingsStorage.mainBackgroundColor = Color.WHITE
+            SettingsStorage.buttonColorD = Color.WHITE
+            binding.btnMenu.background = SettingsStorage.buttonColorD.toDrawable()
             binding.root.background = SettingsStorage.mainBackgroundColor.toDrawable()
         }
 
         binding.buttonGreen.setOnClickListener {
             SettingsStorage.mainBackgroundColor = ContextCompat.getColor(requireContext(), R.color.green_bg)
+            SettingsStorage.buttonColorD = ContextCompat.getColor(requireContext(), R.color.green_button)
+            binding.btnMenu.background = SettingsStorage.buttonColorD.toDrawable()
             binding.root.background = SettingsStorage.mainBackgroundColor.toDrawable()
         }
 
         binding.buttonBlue.setOnClickListener {
             SettingsStorage.mainBackgroundColor = ContextCompat.getColor(requireContext(), R.color.blue_bg)
+            SettingsStorage.buttonColorD = ContextCompat.getColor(requireContext(), R.color.blue_button)
+            binding.btnMenu.background = SettingsStorage.buttonColorD.toDrawable()
             binding.root.background = SettingsStorage.mainBackgroundColor.toDrawable()
         }
 
         binding.buttonYellow.setOnClickListener {
             SettingsStorage.mainBackgroundColor = ContextCompat.getColor(requireContext(), R.color.yellow_bg)
+            SettingsStorage.buttonColorD = ContextCompat.getColor(requireContext(), R.color.yellow_button)
+            binding.btnMenu.background = SettingsStorage.buttonColorD.toDrawable()
             binding.root.background = SettingsStorage.mainBackgroundColor.toDrawable()
         }
 
         binding.buttonGray.setOnClickListener {
             SettingsStorage.mainBackgroundColor = ContextCompat.getColor(requireContext(), R.color.gray_bg)
+            SettingsStorage.buttonColorD = ContextCompat.getColor(requireContext(), R.color.gray_button)
+            binding.btnMenu.background = SettingsStorage.buttonColorD.toDrawable()
             binding.root.background = SettingsStorage.mainBackgroundColor.toDrawable()
         }
 
         binding.buttonPink.setOnClickListener {
             SettingsStorage.mainBackgroundColor = ContextCompat.getColor(requireContext(), R.color.pink_bg)
+            SettingsStorage.buttonColorD = ContextCompat.getColor(requireContext(), R.color.pink_button)
+            binding.btnMenu.background = SettingsStorage.buttonColorD.toDrawable()
             binding.root.background = SettingsStorage.mainBackgroundColor.toDrawable()
         }
     }

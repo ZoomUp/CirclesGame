@@ -28,19 +28,32 @@ class MainScreen : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.apply {
             MainScreen.background = SettingsStorage.mainBackgroundColor.toDrawable()
-            buttonStart.setOnClickListener {
-                findNavController().navigate(R.id.action_MainScreen_to_GameScreen)
+            buttonStart.apply {
+                background = SettingsStorage.buttonColorD.toDrawable()
+                setOnClickListener {
+                    findNavController().navigate(R.id.action_MainScreen_to_GameScreen)
+                }
             }
-            buttonSettings.setOnClickListener {
-                findNavController().navigate(R.id.action_MainScreen_to_settingsScreen)
+            buttonSettings.apply {
+                background = SettingsStorage.buttonColorD.toDrawable()
+                setOnClickListener {
+                    findNavController().navigate(R.id.action_MainScreen_to_settingsScreen)
+                }
             }
-            buttonExit.setOnClickListener{
-                exitProcess(-1)
+            buttonExit.apply {
+                background = SettingsStorage.buttonColorD.toDrawable()
+                setOnClickListener{
+                    exitProcess(-1)
+                }
             }
-            buttonRecords.setOnClickListener{
-                findNavController().navigate(R.id.action_MainScreen_to_recordsScreen)
+            buttonRecords.apply {
+                background = SettingsStorage.buttonColorD.toDrawable()
+                setOnClickListener{
+                    findNavController().navigate(R.id.action_MainScreen_to_recordsScreen)
+                }
             }
         }
     }

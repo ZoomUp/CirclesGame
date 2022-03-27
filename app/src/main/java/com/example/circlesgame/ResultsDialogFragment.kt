@@ -6,8 +6,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.graphics.drawable.toDrawable
 import androidx.fragment.app.DialogFragment
 import com.example.circlesgame.databinding.FragmentNotificationBinding
+import com.example.circlesgame.storages.SettingsStorage
 
 class ResultsDialogFragment(var score: Int, var notificationCallback: () -> Unit = {}): DialogFragment() {
 
@@ -27,9 +29,12 @@ class ResultsDialogFragment(var score: Int, var notificationCallback: () -> Unit
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         super.onViewCreated(view, savedInstanceState)
-        binding.btnOk.setOnClickListener {
-            notificationCallback.invoke()
-            dismiss()
+        binding.btnOk.apply {
+            background = SettingsStorage.buttonColorD.toDrawable()
+            setOnClickListener {
+                notificationCallback.invoke()
+                dismiss()
+            }
         }
     }
     companion object {
