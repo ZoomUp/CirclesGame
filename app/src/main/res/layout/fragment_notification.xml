@@ -25,28 +25,19 @@
             android:layout_height="wrap_content"
             android:background="@color/Coral">
 
-            <ImageView
-                android:id="@+id/img_notification"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="37dp"
-                android:src="@drawable/results"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <TextView
                 android:id="@+id/txt_notification"
                 android:layout_width="match_parent"
                 android:layout_height="57dp"
                 android:gravity="center"
-                android:text="@string/result_uppercase"
-                android:textColor="@color/Blue"
-                android:textFontWeight="500"
-                android:textSize="18sp"
+                android:text="@string/result"
+                android:textColor="@color/black"
+                android:fontFamily="@font/gothampro"
+                android:layout_marginTop="32dp"
+                android:textSize="22sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/img_notification" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/txt_message"
@@ -55,8 +46,8 @@
                 android:layout_marginTop="2dp"
                 android:gravity="center"
                 android:text=""
-                android:textColor="@color/Blue"
-                android:textFontWeight="500"
+                android:textColor="@color/black"
+                android:fontFamily="@font/gothampro"
                 android:textSize="22sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -70,10 +61,10 @@
                 android:layout_marginBottom="27dp"
                 android:background="@color/transparent"
                 android:text="@string/ok_uppercase"
-                android:textColor="@color/Blue"
-                android:textFontWeight="700"
+                android:textColor="@color/black"
                 android:textSize="18sp"
-                android:textStyle="normal"
+                android:textAllCaps="false"
+                android:letterSpacing="0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
