@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.circlesgame.databinding.FragmentGameScreenBinding
 import com.example.circlesgame.storages.SettingsStorage
 import com.example.circlesgame.storages.SettingsStorage.listRecords
+import jp.wasabeef.blurry.Blurry
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlin.random.Random
@@ -70,6 +71,8 @@ class GameScreen : Fragment() {
 
     private fun notCorrectAnswer() {
         timer.cancel()
+
+        Blurry.with(context).onto(binding.root)
         ResultsDialogFragment(score) { restartGame() }.show(
             childFragmentManager,
             ResultsDialogFragment.TAG
@@ -77,6 +80,7 @@ class GameScreen : Fragment() {
     }
 
     private fun restartGame() {
+        Blurry.delete(binding.root)
         startCount = 3
         changeAlphaCircle = 0.30f
         createCircle()
