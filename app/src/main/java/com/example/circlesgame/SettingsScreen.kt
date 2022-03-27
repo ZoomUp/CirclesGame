@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toDrawable
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -54,33 +55,28 @@ class SettingsScreen : Fragment() {
         }
 
         binding.buttonGreen.setOnClickListener {
-            SettingsStorage.mainBackgroundColor = Color.GREEN
+            SettingsStorage.mainBackgroundColor = ContextCompat.getColor(requireContext(), R.color.green_bg)
             binding.root.background = SettingsStorage.mainBackgroundColor.toDrawable()
         }
 
-        binding.buttonCyan.setOnClickListener {
-            SettingsStorage.mainBackgroundColor = Color.CYAN
+        binding.buttonBlue.setOnClickListener {
+            SettingsStorage.mainBackgroundColor = ContextCompat.getColor(requireContext(), R.color.blue_bg)
             binding.root.background = SettingsStorage.mainBackgroundColor.toDrawable()
         }
 
         binding.buttonYellow.setOnClickListener {
-            SettingsStorage.mainBackgroundColor = Color.YELLOW
+            SettingsStorage.mainBackgroundColor = ContextCompat.getColor(requireContext(), R.color.yellow_bg)
             binding.root.background = SettingsStorage.mainBackgroundColor.toDrawable()
         }
 
         binding.buttonGray.setOnClickListener {
-            SettingsStorage.mainBackgroundColor = Color.GRAY
+            SettingsStorage.mainBackgroundColor = ContextCompat.getColor(requireContext(), R.color.gray_bg)
             binding.root.background = SettingsStorage.mainBackgroundColor.toDrawable()
         }
 
-        binding.buttonMagenta.setOnClickListener {
-            SettingsStorage.mainBackgroundColor = generateColor()
+        binding.buttonPink.setOnClickListener {
+            SettingsStorage.mainBackgroundColor = ContextCompat.getColor(requireContext(), R.color.pink_bg)
             binding.root.background = SettingsStorage.mainBackgroundColor.toDrawable()
         }
-    }
-
-    private fun generateColor(): Int {
-        val random = Random.Default
-        return Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256))
     }
 }

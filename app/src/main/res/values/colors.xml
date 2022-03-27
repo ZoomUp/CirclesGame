@@ -148,4 +148,12 @@
     <color name="DarkBlue">#00008B</color>
     <color name="Navy">#000080</color>
     <color name="Black">#000000</color>
+
+    <!--Background colors -->
+    <color name="green_bg">#FFB3F2B1</color>
+    <color name="blue_bg">#FFC6E3F5</color>
+    <color name="yellow_bg">#FFFDFFA4</color>
+    <color name="gray_bg">#FFDBD7D7</color>
+    <color name="pink_bg">#FFF8DCC8</color>
+
 </resources>

@@ -14,7 +14,7 @@
     <string name="cyan">Голубой</string>
     <string name="yellow">Желтый</string>
     <string name="gray">Серый</string>
-    <string name="random">Рандомный</string>
+    <string name="pink">Розовый</string>
     <string name="score">Счёт:</string>
     <string name="timer">Таймер: </string>
 </resources>
