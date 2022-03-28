@@ -136,7 +136,6 @@
         android:layout_marginHorizontal="40dp"
         android:layout_marginVertical="40dp"
         android:text="@string/back_to_menu"
-        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -36,6 +36,7 @@ class ResultsDialogFragment(var score: Int, var notificationCallback: () -> Unit
                 dismiss()
             }
         }
+        binding.parentConstraint.background = SettingsStorage.buttonColorD.toDrawable()
     }
     companion object {
         const val TAG = "ResultsDialogFragment"

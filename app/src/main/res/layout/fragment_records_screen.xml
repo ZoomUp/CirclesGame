@@ -13,8 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="50dp"
-        android:text="@string/back_to_menu"
-        android:textSize="18sp" />
+        android:text="@string/back_to_menu" />
 
     <TextView
         android:id="@+id/text_top"
